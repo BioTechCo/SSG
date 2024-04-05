@@ -10,7 +10,7 @@ Put all idat files in `idats` folder. In case user wants to use part of idat fil
 
 Upon running `GetGEOSampleSheet.py` script, user will be prompted to enter the `GEO Accession number` and `identifier of characteristics` . The script will then download the sample sheet and idat files from the GEO Accession number. `GEO Accession number` is the desired GEO Accession number that user wants to download the sample sheet and idat files from. `identifier of characteristics` can be found in the characteristics section of each sample. Choose the identifier that user wants to use as the sample group. The script will then generate a sample sheet with the idat files in the "idats" folder.
 
-For example, identifier of characteristics could be "disease state" or "tissue type".
+For example, identifier of characteristics could be "disease state".
 ![alt text](images/image.png)
 
 ## Demo
