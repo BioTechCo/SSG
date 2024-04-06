@@ -37,6 +37,7 @@ if __name__ == '__main__':
             basket['Sentrix_ID'] = file_mapping[gsm_name].split('_')[1]
             basket['Sentrix_Position'] = file_mapping[gsm_name].split('_')[2]
             sample_sheet = pd.concat([sample_sheet, pd.DataFrame([basket])], ignore_index=True)
+            sample_sheet = pd.concat([sample_sheet, pd.DataFrame([basket])], ignore_index=True)
 
     sample_sheet.sort_values(by=['Sample_Group', 'Sentrix_ID', 'Sentrix_Position'], inplace=True)
     sample_sheet.reset_index(drop=True, inplace=True)
