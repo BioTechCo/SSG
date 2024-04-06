@@ -16,10 +16,11 @@ if __name__ == '__main__':
         if f.endswith('.idat'):
             print("idat file found: ", f)
             file_mapping[f.split('_')[0]] = f
-    # if no idat files found, exit
+
     if not file_mapping:
         print("No idat files found in the directory")
         exit()
+
     gse = GEOparse.get_GEO(geo=f"GSE{geo_identifier}", destdir="./")
 
     sample_sheet = pd.DataFrame()
@@ -42,7 +43,6 @@ if __name__ == '__main__':
     sample_sheet.sort_values(by=['Sample_Group', 'Sentrix_ID', 'Sentrix_Position'], inplace=True)
     sample_sheet.reset_index(drop=True, inplace=True)
     sample_sheet['Sample_Name'] = sample_sheet.index + 1
-    # check out directory esists
     if not os.path.exists('output'):
         os.makedirs('output')
     sample_sheet.to_csv("output/sample_sheet.csv", index=False)
