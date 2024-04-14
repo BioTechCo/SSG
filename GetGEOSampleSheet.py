@@ -31,6 +31,7 @@ if __name__ == '__main__':
         basket['Sample_Name'] = ''
         basket['Sample_Plate'] = ''
         basket['Pool_ID'] = ''
+        basket['gsm_name'] = gsm_name
         char_dict = {key: value for item in gsm.metadata['characteristics_ch1'] for key, value in [item.split(': ')]}
         basket['Sample_Group'] = char_dict[characteristics_identifier]
         if gsm_name in file_mapping:
