@@ -35,8 +35,8 @@ poetry install
 1. `geo_champ.ipynb`:
 This notebook fetches data from GEO database via FTP server and `GEOparse`. The critical phenotypes are identified and a sample sheet suitable for ChAMP analysis is generated. 
 
-[!WARNING]  
-The one phenotype differentiating tumor and normal samples is identified by selecting the phenotype with exactly two unique values. Users might need to manually select the phenotype of interest if more than one phenotype has two unique values.  
+> [!WARNING]  
+> The one phenotype differentiating tumor and normal samples is identified by selecting the phenotype with exactly two unique values. Users might need to manually select the phenotype of interest if more than one phenotype has two unique values.  
 
 2. `champ_analysis.ipynb`:
 This notebook fetch Data tables by specific GEO accession. Users are encouraged to visit the GEO database and look up whether the data is normalized, which is often presented in `Data table header descriptions` of every sample.
