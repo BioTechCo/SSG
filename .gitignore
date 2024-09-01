@@ -1,7 +1,7 @@
 *.gz
 *.tar
 /output
-/venv
+/.venv
 /idats
 *.csv
 *.zip
