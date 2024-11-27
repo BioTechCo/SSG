@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ssg"
+version = "0.1.0"
+description = ""
+authors = ["vincent <hankggg2003xd@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ipykernel = "^6.29.5"
+geoparse = "^2.0.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

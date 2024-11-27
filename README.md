@@ -1,37 +1,51 @@
 # SSG
 
-## Description
+## Table of Contents
 
-Generate sample sheet by the given GEO accession number.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
 
-Put all idat files in `idats` folder. In case user wants to use part of idat files from a GEO Accession, user may manually put the idat files in "idats" folder.
+## Installation
 
-## Workflow
-1. Download the zipped idat files from the GEO Accession number and put them in the "idats" folder.
-2. Unzip all the ".gz" files in the "idats" folder using `unzip.py`.
-3. Run `GetGEOSampleSheet.py` to generate the sample sheet.
-4. Run `rename.py` to remove the the idat files' prefix which is used to identify the sample in the process of `GetGEOSampleSheet.py`.
+poetry install
+
+### Prerequisites
+
+- python>=3.11
+- poetry>=1.8.3
+
+### Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/BioTechCo/SSG.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd SSG
+   ```
+3. Install dependencies:
+   ```bash
+    poetry install
+   ```
 
 ## Usage
-### GetGETSampleSheet.py
 
-Upon running `GetGEOSampleSheet.py` script, user will be prompted to enter the `GEO Accession number` and `identifier of characteristics` . The script will then download the sample sheet and idat files from the GEO Accession number. `GEO Accession number` is the desired GEO Accession number that user wants to download the sample sheet and idat files from. `identifier of characteristics` can be found in the characteristics section of each sample. Choose the identifier that user wants to use as the sample group. The script will then generate a sample sheet with the idat files in the "idats" folder.
+1. `geo_champ.ipynb`:
+This notebook fetches data from GEO database via FTP server and `GEOparse`. The critical phenotypes are identified and a sample sheet suitable for ChAMP analysis is generated. 
 
+> [!WARNING]  
+> The one phenotype differentiating tumor and normal samples is identified by selecting the phenotype with exactly two unique values. Users might need to manually select the phenotype of interest if more than one phenotype has two unique values.  
 
-For example, identifier of characteristics could be "disease state".
-![alt text](images/image.png)
+2. `champ_analysis.ipynb`:
+This notebook fetch Data tables by specific GEO accession. Users are encouraged to visit the GEO database and look up whether the data is normalized, which is often presented in `Data table header descriptions` of every sample.
 
-### unzip.py
-unzip all ".gz" files in the "idats" folder.
+3. `geo_phenotype.ipynb`:
+This notebook fetch phenotypes form GEO database and export them as a csv file. Excluded phenotypes are those names containing `supplementary_file`, `data_processing`, `extract_protocol_ch1`, `hyb_protocol`, `contact`.
 
-### rename.py
-rename all idat files in the "idats" folder. 
+## Features
 
-## Demo
-    
-```bash 
-python GetGEOSampleSheet.py
-```
-enter the GEO Accession number: 122126 <br>
-enter the identifier of characteristics: disease state
-
+- Generate sample sheet for ChAMP analysis by specific GEO accession.
+- Fetch data tables by specific GEO accession.
+- Fetch phenotypes by specific GEO accession.
